@@ -1,4 +1,4 @@
 # ROME
-### R and Python demos for `Robust Mixture Models for Algorithmic Fairness Under Latent Heterogeneity'.
+### R and Python demos for paper `[Robust Mixture Models for Algorithmic Fairness Under Latent Heterogeneity](https://arxiv.org/abs/2509.17411)'.
 
 Standard machine learning models optimized for average performance often fail on minority subgroups and lack robustness to distribution shifts. This challenge worsens when subgroups are latent and affected by complex interactions among continuous and discrete features. We introduce ROME (RObust Mixture Ensemble), a framework that learns latent group structure from data while optimizing for worst-group performance. ROME employs two approaches: an Expectation-Maximization algorithm for linear models and a neural Mixture-of-Experts for nonlinear settings. Through simulations and experiments on real-world datasets, we demonstrate that ROME significantly improves algorithmic fairness compared to standard methods while maintaining competitive average performance. Importantly, our method requires no predefined group labels, making it practical when sources of disparities are unknown or evolving.
