@@ -1,0 +1,113 @@
+Starting multi-configuration analysis: 2025-09-12 17:17:11
+Output will be saved to: output/demo_python_seed_123_20250912_171711.txt
+Total configurations to run: 1
+================================================================================
+
+
+================================================================================
+CONFIGURATION 1
+Evaluation Columns: ['S1', 'S2', 'S3']
+Split Method: median
+Starting: 2025-09-12 17:17:11
+--------------------------------------------------------------------------------
+Using device: cpu
+
+Auto-detected 8 'A' feature columns: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8']
+Auto-detected 3 'S' feature columns: ['S1', 'S2', 'S3']
+
+--- Training Standard MoE Model for 30 epochs ---
+MoE - Epoch 1/30, Avg Training Loss: 0.0351
+MoE - Epoch 10/30, Avg Training Loss: 0.0193
+MoE - Epoch 20/30, Avg Training Loss: 0.0184
+MoE - Epoch 30/30, Avg Training Loss: 0.0177
+
+--- Training Baseline MLP Model for 30 epochs ---
+Baseline - Epoch 1/30, Avg Training Loss: 0.0296
+Baseline - Epoch 10/30, Avg Training Loss: 0.0189
+Baseline - Epoch 20/30, Avg Training Loss: 0.0183
+Baseline - Epoch 30/30, Avg Training Loss: 0.0169
+
+--- Training Fair Baseline MLP Model for 30 epochs ---
+Fair Baseline - Epoch 1/30, Avg Training Loss: 0.0310
+Fair Baseline - Epoch 10/30, Avg Training Loss: 0.0216
+Fair Baseline - Epoch 20/30, Avg Training Loss: 0.0208
+Fair Baseline - Epoch 30/30, Avg Training Loss: 0.0206
+
+--- Training Fair MoE Model for 30 epochs ---
+Fair MoE - Epoch 1/30, Avg Training Loss: 0.0470
+Fair MoE - Epoch 10/30, Avg Training Loss: 0.0213
+Fair MoE - Epoch 20/30, Avg Training Loss: 0.0207
+Fair MoE - Epoch 30/30, Avg Training Loss: 0.0194
+
+--- Training Fair MoE Model for 30 epochs ---
+Fair MoE - Epoch 1/30, Avg Training Loss: 0.0852
+Fair MoE - Epoch 10/30, Avg Training Loss: 0.0226
+Fair MoE - Epoch 20/30, Avg Training Loss: 0.0203
+Fair MoE - Epoch 30/30, Avg Training Loss: 0.0194
+
+--- Final Overall Evaluation on TEST DATA ---
+Baseline MLP Final Test MSE: 0.0206
+Fair Baseline MLP Final Test MSE: 0.0232
+Standard MoE Final Test MSE: 0.0204
+Fair MoE 1 Final Test MSE: 0.0212
+Fair MoE 2 Final Test MSE: 0.0200
+
+--- Evaluating Models on Subgroups Defined by: S1, S2, S3 ---
+
+Processing column: S1
+  -> Treating S1 as continuous variable
+  -> Median split at: 0.060
+
+Processing column: S2
+  -> Treating S2 as continuous variable
+  -> Median split at: 0.040
+
+Processing column: S3
+  -> Treating S3 as continuous variable
+  -> Median split at: 0.395
+Created 8 intersectional subgroups for evaluation.
+
+--- Per-Group MSE on TEST DATA ---
+                         BaselineMLP  FairBaselineMLP  StandardMoE  FairMoE_1  FairMoE_2
+Group                                                                                   
+S1_High_S2_High_S3_High       0.0161           0.0250       0.0161     0.0163     0.0172
+S1_High_S2_High_S3_Low        0.0160           0.0209       0.0149     0.0191     0.0161
+S1_High_S2_Low_S3_High        0.0481           0.0495       0.0494     0.0517     0.0460
+S1_High_S2_Low_S3_Low         0.0202           0.0179       0.0187     0.0209     0.0182
+S1_Low_S2_High_S3_High        0.0213           0.0248       0.0225     0.0218     0.0204
+S1_Low_S2_High_S3_Low         0.0243           0.0248       0.0237     0.0242     0.0248
+S1_Low_S2_Low_S3_High         0.0046           0.0082       0.0036     0.0040     0.0047
+S1_Low_S2_Low_S3_Low          0.0139           0.0133       0.0132     0.0128     0.0124
+
+--- Max MSE Across All Subgroups (Worst-Group Performance) ---
+BaselineMLP       0.0481
+FairBaselineMLP   0.0495
+StandardMoE       0.0494
+FairMoE_1         0.0517
+FairMoE_2         0.0460
+dtype: float64
+
+================================================================================
+--- FINAL COMPREHENSIVE EVALUATION ON ENTIRE TEST DATASET ---
+================================================================================
+
+--- FINAL TEST SET PERFORMANCE SUMMARY ---
+------------------------------------------------------------
+                    MSE
+BaselineMLP_Full 0.0206
+BaselineMLP_Fair 0.0232
+StandardMoE      0.0204
+FairMoE_1        0.0212
+FairMoE_2        0.0200
+
+Configuration 1 completed successfully
+Finished: 2025-09-12 17:17:15
+================================================================================
+
+
+================================================================================
+SUMMARY
+================================================================================
+All configurations completed: 2025-09-12 17:17:15
+Total configurations run: 1
+Results saved to: output/demo_python_seed_123_20250912_171711.txt
